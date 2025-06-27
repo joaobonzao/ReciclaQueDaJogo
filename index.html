@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trabalho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="cabecalho">
+        <img src="./assets/img/lixinho.png" height="200px" width="200px" alt="logo1" id="logo1">
+        <div class="header-content">
+            <h1 class="titulo-principal">Recicla que da JOGO!</h1>
+            <nav>
+                <ul class="menu-navacao">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre">sobre</a></li>
+                    <li><a href="#jogos">Jogos</a></li>
+                    <li><a href="#rank">Ranque</a></li>
+                </ul>
+            </nav>
+        </div>
+        <a href="#" id="abrir-menu" class="btn-menu-lateral" title="Abrir menu lateral">&#9776;</a>
+    </header>
+    <nav id="menu-lateral">
+        <a href="#"id="fechar-menu" title="Fechar menu lateral">&times;</a>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">sobre</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#rank">Ranque</a>
+    </nav>
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <main>
+        <section id="#inicio">
+            <h1>motivos</h1>
+            <p>importancia</p>
+            abra a porta marilene.
+        </section>
+        <section id="jogos">
+            <h2>nome do jogo</h2>
+            <img src="./assets/img/ilustrativo.webp" height="200px" width="200px" id="foto-jogo" alt="Ilustração do jogo">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi quos odit harum fuga recusandae qui
+                provident rem, numquam suscipit aliquid voluptate eligendi sed optio sequi ratione tempora tempore.
+                Animi, harum!</p>
+        </section>
+        <section id="rank">
+            <h2>Ranque</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.
+                Quisquam, voluptatum. Quisquam, voluptatum. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            <ul>
+                <li>1º lugar</li>
+                <li>2º lugar</li>
+                <li>3º lugar</li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        const menu = document.getElementById('menu-lateral');
+        const abrir = document.getElementById('abrir-menu');
+        const fechar = document.getElementById('fechar-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        function abrirMenu() {
+            menu.classList.add('open');
+            overlay.classList.add('active');
+        }
+        function fecharMenu() {
+            menu.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+        abrir.addEventListener('click', function(e) {
+            e.preventDefault();
+            abrirMenu();
+        });
+        fechar.addEventListener('click', function(e) {
+            e.preventDefault();
+            fecharMenu();
+        });
+        overlay.addEventListener('click', fecharMenu);
+    </script>
+</body>
+
+</html>
