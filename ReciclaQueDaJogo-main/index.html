@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trabalho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+
+<body class="bg-light">
+    <header id="cabecalho" class="d-flex align-items-center justify-content-between p-3  shadow-sm">
+        <img src="./assets/img/lixinho.png" height="80" width="80" alt="logo1" id="logo1" class="rounded-circle shadow-sm">
+        <div class="header-content">
+            <h1 class="titulo-principal mb-2">Recicla que dá JOGO!</h1>
+            <nav>
+                <ul class="menu-navacao">
+                    <li><a href="#inicio">Início</a></li>
+
+                    <li><a href="#jogos">Jogos</a></li>
+                    <li><a href="#rank">Ranque</a></li>
+                </ul>
+            </nav>
+        </div>
+        <a href="#" id="abrir-menu" class="btn btn-success btn-lg" title="Abrir menu lateral">&#9776;</a>    </header>
+    <nav id="menu-lateral">
+        <a href="#" id="fechar-menu" title="Fechar menu lateral">&times;</a>
+        <a href="#inicio">Início</a>
+        <a href="#jogos">Jogos</a>
+        <a href="#rank">Ranque</a>
+    </nav>
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <main class="container-fluid mt-4 px-2 px-md-4">
+        <section id="inicio" class="mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="mb-3">Por que reciclar?</h2>
+                    <p class="lead">A reciclagem é fundamental para preservar o meio ambiente, economizar recursos naturais e garantir um futuro sustentável. Faça sua parte!</p>
+                    <ul>
+                        <li>Reduz a poluição</li>
+                        <li>Economiza energia</li>
+                        <li>Gera empregos</li>
+                        <li>Ajuda o planeta</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="./assets/img/ilustrativo.webp" class="img-fluid rounded shadow w-100" alt="Ilustração Reciclagem" style="max-width:350px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="jogos" class="mb-5">
+            <h2 class="mb-4 text-success">Jogue e Aprenda!</h2>
+            <div class="card mx-auto shadow" style="max-width: 400px;">
+                <a href="jogo1/jogo1.html">
+                    <img src="./assets/img/ilustrativo.webp" class="card-img-top" alt="Ilustração do jogo">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">Jogo de Separar Lixo</h5>
+                    <p class="card-text">Arraste cada lixo para a lixeira correta e aprenda brincando sobre reciclagem!</p>
+                    <a href="jogo1/jogo1.html" class="btn btn-success btn-block">Jogar Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rank" class="mb-5">
+            <h2 class="mb-4 text-primary">Ranque</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">🥇 1º lugar</li>
+                <li class="list-group-item">🥈 2º lugar</li>
+                <li class="list-group-item">🥉 3º lugar</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="bg-success text-white text-center py-3">
+        &copy; 2025 Recicla que dá JOGO! | Projeto Educacional
+    </footer>
+
+    <script>
+        const menu = document.getElementById('menu-lateral');
+        const abrir = document.getElementById('abrir-menu');
+        const fechar = document.getElementById('fechar-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        function abrirMenu() {
+            menu.classList.add('open');
+            overlay.classList.add('active');
+        }
+        function fecharMenu() {
+            menu.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+        if (abrir) {
+            abrir.addEventListener('click', function (e) {
+                e.preventDefault();
+                abrirMenu();
+            });
+        }
+        if (fechar) {
+            fechar.addEventListener('click', function (e) {
+                e.preventDefault();
+                fecharMenu();
+            });
+        }
+        if (overlay) {
+            overlay.addEventListener('click', fecharMenu);
+        }
+    </script>
+</body>
+
+</html>
