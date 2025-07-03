@@ -275,6 +275,7 @@ header h1 {
     color: #14532d;
 }
 
+
 @media (max-width: 768px) {
     .header-content {
         align-items: center;
