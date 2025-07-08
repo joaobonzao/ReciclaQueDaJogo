@@ -26,7 +26,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin: 20px auto;
-  gap: 15px;
+  gap: 20px;
   max-width: 800px;
   min-height: 150px;
 }
@@ -58,11 +58,12 @@ body {
 }
 
 .lixeira {
+  align-items: center;
   background: none;
   border: none;
   box-shadow: none;
   padding: 0;
-  width: 120px;
+  width: 140px;
   min-height: unset;
   position: relative;
   overflow: visible;
@@ -210,12 +211,12 @@ body {
 }
 
 .golden-flash {
-  animation: golden-flash 1.2s ease-in-out;
+  animation: golden-flash 1.2s ease-in;
 }
 
 .golden-bg {
   background: linear-gradient(0deg, #fffbe6 0%, #ffe066 100%) !important;
-  transition: background 0.5s;
+  transition: background 0.2s;
 }
 
 .golden-message {
@@ -234,12 +235,12 @@ body {
   color: #bfa100;
   text-shadow: 0 2px 16px #fffbe6, 0 0 8px #ffe066;
   letter-spacing: 2px;
-  animation: golden-msg-fade 1.2s;
+  animation: golden-msg-fade 0.95s;
 }
 
 @keyframes golden-msg-fade {
   0% { opacity: 0; transform: scale(0.95); }
-  20% { opacity: 1; transform: scale(1.05); }
+  20% { opacity: 0; transform: scale(1.05); }
   80% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1); }
 }

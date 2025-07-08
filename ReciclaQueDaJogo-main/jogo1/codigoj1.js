@@ -1,10 +1,15 @@
 const lixos = [
-  { nome: "Banana", tipo: "organico", img: "./img/banana.webp" },
-  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/garrafa.avif" },
-  { nome: "Lata de Refrigerante", tipo: "reciclavel", img: "./img/refri.png" },
+  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
+  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
+  { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
-  { nome: "Copo de Vidro", tipo: "perigoso", img: "./img/copo.png" },
-  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" }
+  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
+  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
+  { nome: "Maçã", tipo: "organico", img: "./img/maca.png" },
+  { nome: "Peixe", tipo: "organico", img: "./img/peixe.png" },
+  { nome: "Carne", tipo: "organico", img: "./img/carne.png" }
+  
+  
 ];
 
 let lixosAtuais = [];
@@ -18,12 +23,15 @@ let vidasDouradas = 0; // 0 a 3
 let fase = 1;
 
 const lixosFase1 = [
-  { nome: "Banana", tipo: "organico", img: "./img/banana.webp" },
-  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/garrafa.avif" },
-  { nome: "Lata de Refrigerante", tipo: "reciclavel", img: "./img/refri.png" },
+  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
+  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
+  { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
-  { nome: "Copo de Vidro", tipo: "perigoso", img: "./img/copo.png" },
-  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" }
+  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
+  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
+  { nome: "Maçã", tipo: "organico", img: "./img/maca.png" },
+  { nome: "Peixe", tipo: "organico", img: "./img/peixe.png" },
+  { nome: "Carne", tipo: "organico", img: "./img/carne.png" }
 ];
 
 const lixosFase2 = [
@@ -76,38 +84,42 @@ function resetGame() {
 function proximaFase() {
   fase++;
   maxImagens = 5 + (fase - 1) * 2;
+
   if (fase % 3 === 0) {
     let ganhouDourada = false;
-    if (vidasDouradas < 3) {
-      if (vidas > 0) {
-        vidas--;
-        vidasDouradas++;
-        ganhouDourada = true;
-      } else if (vidas === 0) {
-        // Se não tem mais corações, só aumenta dourada se não passou do limite
-        vidasDouradas = Math.min(vidasDouradas + 1, 3);
-        ganhouDourada = true;
-      }
-    }
+    let ganhouVida = false;
+
+    // Só ganha dourada se chegar com todas as vidas
+    if ((vidas + vidasDouradas) >= 3 && vidasDouradas < 3) {
+  if (vidas > 0) vidas--;
+  vidasDouradas++;
+  ganhouDourada = true;
+} else if (vidas < 3 && vidasDouradas < 3) {
+  vidas = Math.min(vidas + 1, 3); // Ganha só uma vida normal
+  ganhouVida = true;
+}
     atualizarVidas();
     setTimeout(() => {
       if (ganhouDourada) {
-        document.body.classList.add('golden-bg');
-        const msg = document.createElement('div');
-        msg.className = 'golden-message';
-        msg.innerHTML = "<span>⭐ Parabéns! Você ganhou uma vida dourada por chegar na fase " + fase + "! ⭐</span>";
-        document.body.appendChild(msg);
-        setTimeout(() => {
-          msg.remove();
-          document.body.classList.remove('golden-bg');
-        }, 1800);
-      } else if (vidas < 3 && vidasDouradas < 3) {
-        alert("Parabéns! Você ganhou +1 vida por chegar na fase " + fase + "!");
-      }
+  if (!document.querySelector('.golden-message')) {
+    document.body.classList.add('golden-bg');
+    const msg = document.createElement('div');
+    msg.className = 'golden-message';
+    msg.innerHTML = "<span>⭐ Parabéns! Você ganhou uma vida dourada por chegar na fase " + fase + " sem perder vidas! ⭐</span>";
+    document.body.appendChild(msg);
+    setTimeout(() => {
+      msg.remove();
+      document.body.classList.remove('golden-bg');
+    }, 1800);
+        }
+} else if (ganhouVida) {
+  alert("Parabéns! Você ganhou +1 vida por chegar na fase " + fase + "!");
+}
     }, 300);
   }
   iniciarFase();
 }
+
 
 function iniciarFase() {
   lixosRestantes = [];
@@ -143,13 +155,16 @@ function createAndAppendTrash(lixo, index) {
   img.addEventListener("dragstart", dragStart);
   container.appendChild(img);
 }
-
 function setupDropZones() {
   const dropZones = document.querySelectorAll(".lixeira");
 
   dropZones.forEach(zone => {
     zone.addEventListener("dragover", dragOver);
     zone.addEventListener("drop", drop);
+    // Impede que a lixeira seja arrastada
+    zone.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
   });
 }
 
