@@ -1,14 +1,52 @@
 const lixos = [
-  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
-  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
-  { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
-  { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
-  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
-  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
+  //organicos
   { nome: "Maçã", tipo: "organico", img: "./img/maca.png" },
   { nome: "Peixe", tipo: "organico", img: "./img/peixe.png" },
-  { nome: "Carne", tipo: "organico", img: "./img/carne.png" }
+  { nome: "Carne", tipo: "organico", img: "./img/carne.png" },
+  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
+  { nome: "Casca de Ovo", tipo: "organico", img: "./img/casca.png" },
+  { nome: "melancia", tipo: "organico", img: "./img/melancia.png" },
+  { nome: "Cenoura", tipo: "organico", img: "./img/cenoura.png" },
+  { nome: "tomate", tipo: "organico", img: "./img/tomate.png" },
+  { nome: "lata de atum", tipo: "metal", img: "./img/atum.png" },
+  { nome: "lata de milho", tipo: "metal", img: "./img/milho.png" },
+  { nome: "lata de ervilha", tipo: "metal", img: "./img/ervilha.png" },
+  { nome: "lata de feijão", tipo: "metal", img: "./img/feijao.png" },
+  //reciclaveis
+  { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
+  { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
+  { nome: "Caixa de Papelão", tipo: "reciclavel", img: "./img/papel.png" },
+  { nome: "Caixa de Leite", tipo: "reciclavel", img: "./img/leite.png" },
+  { nome: "Caixa de Ovo", tipo: "reciclavel", img: "./img/ovo.png" },
+  { nome: "Caixa de Sapato", tipo: "reciclavel", img: "./img/sapato.png" },
+  { nome: "Caixa de Pizza", tipo: "reciclavel", img: "./img/pizza.png" },
+  { nome: "Caixa de Cereais", tipo: "reciclavel", img: "./img/cereal.png" },
+  { nome: "Caixa de Bombom", tipo: "reciclavel", img: "./img/bombom.png" },
+  //perigosos
+  { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
+  { nome: "Pilha", tipo: "perigoso", img: "./img/pilha.png" },
+  { nome: "Lâmpada", tipo: "perigoso", img: "./img/lampada.png" },
+  { nome: "Tinta", tipo: "perigoso", img: "./img/tinta.png" },
+  { nome: "Remédio Vencido", tipo: "perigoso", img: "./img/remedio.png" },
+  { nome: "Produtos Químicos", tipo: "perigoso", img: "./img/quimico.png" },
+  { nome: "Aerosol Vazio", tipo: "perigoso", img: "./img/aerosol.png" },
+  { nome: "Baterias de Carro", tipo: "perigoso", img: "./img/bateria.png" },
+  //metais
+  { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
+  { nome: "Faca", tipo: "metal", img: "./img/faca.png" },
+  { nome: "prego", tipo: "metal", img: "./img/prego.png" },
+  { nome: "garfo", tipo: "metal", img: "./img/garfo.png" },
+  { nome: "tesoura", tipo: "metal", img: "./img/tesoura.png" },
+  { nome: "chave", tipo: "metal", img: "./img/chave.png" },
+  //vidros
+  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
+  { nome: "Garrafa de Vidro", tipo: "vidro", img: "./img/garrafa.png" },
+  { nome: "Pote de Vidro", tipo: "vidro", img: "./img/pote.png" },
+  { nome: "Vidro Quebrado", tipo: "vidro", img: "./img/vidroquebrado.png" },
+  { nome: "Vidro de Conserva", tipo: "vidro", img: "./img/vidroconserva.png" },
   
+  { nome: "Prato", tipo: "vidro", img: "./img/prato.png" }
+ 
   
 ];
 
@@ -23,7 +61,7 @@ let vidasDouradas = 0; // 0 a 3
 let fase = 1;
 
 const lixosFase1 = [
-  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
+    { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
   { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
   { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
@@ -32,12 +70,15 @@ const lixosFase1 = [
   { nome: "Maçã", tipo: "organico", img: "./img/maca.png" },
   { nome: "Peixe", tipo: "organico", img: "./img/peixe.png" },
   { nome: "Carne", tipo: "organico", img: "./img/carne.png" }
+  
+  
 ];
 
 const lixosFase2 = [
   ...lixosFase1,
   ...lixosFase1,
   ...lixosFase1
+  
 ];
 
 function atualizarPontuacao() {
@@ -123,20 +164,17 @@ function proximaFase() {
 
 function iniciarFase() {
   lixosRestantes = [];
-  // Repete os lixosFase1 até atingir o número de imagens desejado
-  while (lixosRestantes.length < maxImagens) {
-    lixosRestantes = lixosRestantes.concat(lixosFase1);
-  }
-  lixosRestantes = lixosRestantes.slice(0, maxImagens).sort(() => 0.5 - Math.random());
-  lixosAtuais = [];
+  // Define o número de itens únicos por fase
+  maxImagens = 5 + (fase - 1) * 2;
+  // Embaralha o array de lixos
+  let pool = [...lixos].sort(() => 0.5 - Math.random());
+  // Seleciona apenas itens únicos para a rodada
+  lixosRestantes = pool.slice(0, Math.min(maxImagens, pool.length));
+  lixosAtuais = [...lixosRestantes];
   const container = document.getElementById("lixos-container");
   container.innerHTML = "";
-  for (let i = 0; i < maxImagens && lixosRestantes.length > 0; i++) {
-    const lixo = getRandomUniqueItem();
-    if (lixo) {
-      lixosAtuais.push(lixo);
-      createAndAppendTrash(lixo, lixosAtuais.length - 1);
-    }
+  for (let i = 0; i < lixosAtuais.length; i++) {
+    createAndAppendTrash(lixosAtuais[i], i);
   }
   setupDropZones();
 }
@@ -239,22 +277,12 @@ function drop(e) {
   if (indexToRemove !== -1 && items[indexToRemove]) {
     items[indexToRemove].remove();
     lixosAtuais.splice(indexToRemove, 1);
-    // Adicionar novo item aleatório (não repetido)
-    const newItem = getRandomUniqueItem();
-    if (newItem) {
-      lixosAtuais.push(newItem);
-      createAndAppendTrash(newItem, lixosAtuais.length - 1);
-    }
   }
 
-  // Se não há mais imagens visíveis, avança de fase ou termina
-  if (lixosAtuais.length === 0 && lixosRestantes.length === 0) {
+  // Se não há mais imagens visíveis, avança de fase
+  if (lixosAtuais.length === 0) {
     setTimeout(() => {
-      if (fase === 1) {
-        mostrarBotaoFase();
-      } else {
-        mostrarBotaoFase();
-      }
+      mostrarBotaoFase();
     }, 500);
     return;
   }
