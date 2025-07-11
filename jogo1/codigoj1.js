@@ -15,37 +15,23 @@ const lixos = [
   //reciclaveis
   { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
-  { nome: "Caixa de Papelão", tipo: "reciclavel", img: "./img/papel.png" },
-  { nome: "Caixa de Leite", tipo: "reciclavel", img: "./img/leite.png" },
-  { nome: "Caixa de Ovo", tipo: "reciclavel", img: "./img/ovo.png" },
-  { nome: "Caixa de Sapato", tipo: "reciclavel", img: "./img/sapato.png" },
-  { nome: "Caixa de Pizza", tipo: "reciclavel", img: "./img/pizza.png" },
-  { nome: "Caixa de Cereais", tipo: "reciclavel", img: "./img/cereal.png" },
-  { nome: "Caixa de Bombom", tipo: "reciclavel", img: "./img/bombom.png" },
+  { nome: "Caixa de Papelão", tipo: "reciclavel", img: "./img/caixa.png" },
+ 
   //perigosos
   { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
-  { nome: "Pilha", tipo: "perigoso", img: "./img/pilha.png" },
-  { nome: "Lâmpada", tipo: "perigoso", img: "./img/lampada.png" },
-  { nome: "Tinta", tipo: "perigoso", img: "./img/tinta.png" },
-  { nome: "Remédio Vencido", tipo: "perigoso", img: "./img/remedio.png" },
-  { nome: "Produtos Químicos", tipo: "perigoso", img: "./img/quimico.png" },
-  { nome: "Aerosol Vazio", tipo: "perigoso", img: "./img/aerosol.png" },
-  { nome: "Baterias de Carro", tipo: "perigoso", img: "./img/bateria.png" },
+ 
   //metais
   { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
   { nome: "Faca", tipo: "metal", img: "./img/faca.png" },
   { nome: "prego", tipo: "metal", img: "./img/prego.png" },
   { nome: "garfo", tipo: "metal", img: "./img/garfo.png" },
   { nome: "tesoura", tipo: "metal", img: "./img/tesoura.png" },
-  { nome: "chave", tipo: "metal", img: "./img/chave.png" },
+ 
   //vidros
-  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
-  { nome: "Garrafa de Vidro", tipo: "vidro", img: "./img/garrafa.png" },
-  { nome: "Pote de Vidro", tipo: "vidro", img: "./img/pote.png" },
-  { nome: "Vidro Quebrado", tipo: "vidro", img: "./img/vidroquebrado.png" },
-  { nome: "Vidro de Conserva", tipo: "vidro", img: "./img/vidroconserva.png" },
+  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" }
+ 
   
-  { nome: "Prato", tipo: "vidro", img: "./img/prato.png" }
+ 
  
   
 ];
