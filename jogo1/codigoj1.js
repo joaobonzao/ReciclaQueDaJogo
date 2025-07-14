@@ -19,16 +19,19 @@ const lixos = [
  
   //perigosos
   { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
+  { nome: "Faca", tipo: "perigoso", img: "./img/faca.png" },
+  { nome: "tesoura", tipo: "perigoso", img: "./img/tesoura.png" },
  
   //metais
   { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
-  { nome: "Faca", tipo: "metal", img: "./img/faca.png" },
+  
   { nome: "prego", tipo: "metal", img: "./img/prego.png" },
   { nome: "garfo", tipo: "metal", img: "./img/garfo.png" },
-  { nome: "tesoura", tipo: "metal", img: "./img/tesoura.png" },
+  
  
   //vidros
-  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" }
+  { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
+  { nome: "Prato de Vidro", tipo: "vidro", img: "./img/pratoquebrado.png" }
  
   
  

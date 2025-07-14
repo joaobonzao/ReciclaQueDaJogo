@@ -32,20 +32,25 @@ body {
 }
 
 .lixo {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
-  margin: 10px;
+  margin: 12px;
   /* Mantém responsivo e centralizado */
   display: inline-block;
   cursor: grab;
   transition: transform 0.2s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+  background: #e9ffe9;
+  border: 2px solid var(--green-accent);
+  font-size: 0.8rem; /* Reduz o tamanho do nome */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 110px;
 }
 
-.lixo[data-tipo="perigoso"] {
-  height: 110px;
-  margin-bottom: 0;
-}
 
 .lixo:active {
   transform: scale(0.95);
