@@ -1,12 +1,12 @@
 :root {
-    --green-dark: #14532d;
-    --green: #22c55e;
-    --green-light: #bbf7d0;
-    --green-accent: #4ade80;
-    --green-hover: #16a34a;
-    --text-light: #fff;
-    --bg-light: #f0fdf4;
-    --bg-gradient: linear-gradient(120deg, #f0fdf4 0%, #bbf7d0 100%);
+  --green-dark: #14532d;
+  --green: #22c55e;
+  --green-light: #bbf7d0;
+  --green-accent: #4ade80;
+  --green-hover: #16a34a;
+  --text-light: #fff;
+  --bg-light: #f0fdf4;
+  --bg-gradient: linear-gradient(120deg, #f0fdf4 0%, #bbf7d0 100%);
 }
 * {
   margin: 0;
@@ -17,7 +17,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: linear-gradient(0deg, #fff 0%, #bbf7d0 100%);
+  background: linear-gradient(0deg, #fff 40%, #bbf7d0 60%);
   padding: 20px;
 }
 
@@ -36,7 +36,6 @@ body {
   height: 110px;
   object-fit: contain;
   margin: 12px;
-  /* Mantém responsivo e centralizado */
   display: inline-block;
   cursor: grab;
   transition: transform 0.2s ease;
@@ -44,13 +43,12 @@ body {
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
   background: #e9ffe9;
   border: 2px solid var(--green-accent);
-  font-size: 0.8rem; /* Reduz o tamanho do nome */
+  font-size: 0.8rem;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 110px;
 }
-
 
 .lixo:active {
   transform: scale(0.95);
@@ -144,8 +142,8 @@ body {
   background: var(--green-light);
   color: var(--green-dark);
   border-radius: 20px;
-  padding: 12px 32px;
-  font-size: 2rem;
+  padding: 4px 14px;
+  font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 2px 12px rgba(34,197,94,0.15);
   letter-spacing: 2px;
@@ -160,8 +158,8 @@ body {
 
 .pontuacao-box span {
   color: var(--green-hover);
-  font-size: 2.2rem;
-  margin-left: 8px;
+  font-size: 1.2rem;
+  margin-left: 4px;
 }
 
 .vidas-box {
@@ -177,7 +175,7 @@ body {
   border: 2px solid #d90429;
   position: fixed;
   left: 30px;
-  top: 30px;
+  top: 30px; /* alinhado com a pontuação */
   z-index: 100;
   margin: 0;
 }
@@ -186,6 +184,7 @@ body {
   font-size: 1.2rem;
   margin-left: 4px;
   letter-spacing: 2px;
+  margin-top: 50px;
 }
 
 #botao-fase {
@@ -253,113 +252,143 @@ body {
   80% { opacity: 1; transform: scale(1); }
   100% { opacity: 1; transform: scale(1); }
 }
+
 @media (max-width: 768px) {
-    .header-content {
-        align-items: center;
-        text-align: center;
-    }
+  .header-status {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    margin-top: 12px;
+  }
 
-    .menu-navacao {
-        flex-direction: column;
-        gap: 0.7rem;
-    }
+  .pontuacao-box,
+  .vidas-box {
+    position: static;
+    display: inline-block;
+    margin: 0 8px 0 8px;
+    font-size: 1.2rem;
+    padding: 8px 18px;
+    border-radius: 18px;
+    top: unset;
+    left: unset;
+    right: unset;
+  }
 
-    .lixeira {
-        width: 70px;
-    }
-    .lixeira-label {
-        font-size: 0.82rem;
-        padding: 3px 6px;
-        max-width: 80px;
-        white-space: normal;
-        line-height: 1.1;
-        text-align: center;
-        word-break: break-word;
-    }
+  .header-content {
+    align-items: center;
+    text-align: center;
+  }
 
-    .pontuacao-box {
-        top: 20px;
-        right: 20px;
-        font-size: 1.7rem;
-        padding: 10px 20px;
-    }
-    .vidas-box {
-        top: 80px;
-        left: 20px;
-        font-size: 1.2rem;
-        padding: 8px 18px;
-    }
-    h1, .titulo {
-        margin-top: 120px !important;
-        margin-bottom: 40px !important;
-        font-size: 2rem;
-    }
+  .menu-navacao {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .lixeira {
+    width: 70px;
+  }
+
+  .lixeira-label {
+    font-size: 0.82rem;
+    padding: 3px 6px;
+    max-width: 80px;
+    white-space: normal;
+    line-height: 1.1;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .pontuacao-box {
+    top: 20px;
+    right: 20px;
+    font-size: 1.7rem;
+    padding: 10px 20px;
+  }
+
+  .vidas-box {
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    padding: 8px 18px;
+  }
+
+  h1, .titulo {
+    margin-top: 120px !important;
+    margin-bottom: 40px !important;
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .lixo {
-        width: 60px;
-        height: 60px;
-        font-size: 0.6rem;
-    }
+  .lixo {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6rem;
+  }
 
-    .lixeira {
-        width: 70px;
-    }
-    .lixeira-label {
-        font-size: 0.7rem;
-        padding: 2px 4px;
-        max-width: 48px;
-        white-space: normal;
-        line-height: 1.1;
-        text-align: center;
-        word-break: break-word;
-    }
+  .lixeira {
+    width: 70px;
+  }
 
-    .pontuacao-box {
-        font-size: 1.3rem;
-        padding: 8px 16px;
-        top: 5px;
-        right: 5px;
-        margin-bottom: 40px;
-    }
-    .vidas-box {
-        font-size: 1.1rem;
-        padding: 8px 16px;
-        top: 50px;
-        left: 10px;
-        margin-bottom: 60px;
-    }
-    h1, .titulo {
-        margin-top: 100px !important;
-        margin-bottom: 30px !important;
-        font-size: 1.3rem;
-    }
+  .lixeira-label {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+    max-width: 80px;
+    white-space: normal;
+    line-height: 1.1;
+    text-align: center;
+    word-break: break-word;
+  }
 
-    #botao-fase {
-        padding: 20px 40px;
-        font-size: 1.2rem;
-        pointer-events: auto;
-    }
-    .golden-message {
-        pointer-events: none;
-    }
+  .pontuacao-box {
+    font-size: 1.3rem;
+    padding: 8px 16px;
+    top: 5px;
+    right: 5px;
+    margin-bottom: 40px;
+  }
+
+  .vidas-box {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    top: 50px;
+    left: 10px;
+    margin-bottom: 60px;
+  }
+
+  h1, .titulo {
+    margin-top: 100px !important;
+    margin-bottom: 30px !important;
+    font-size: 1.3rem;
+  }
+
+  #botao-fase {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    pointer-events: auto;
+  }
+
+  .golden-message {
+    pointer-events: none;
+  }
 }
 
-/* Indicação para arrastar no mobile */
 @media (max-width: 700px) {
-    .lixo {
-        touch-action: pan-x pan-y;
-    }
-    .lixo::after {
-        content: "Segure e arraste para a lixeira";
-        display: block;
-        font-size: 0.65rem;
-        color: var(--green-dark);
-        margin-top: 2px;
-        opacity: 0.7;
-        text-align: center;
-        white-space: normal;
-    }
-}
+  .lixo {
+    touch-action: pan-x pan-y;
+  }
 
+  .lixo::after {
+    content: "Segure e arraste para a lixeira";
+    display: block;
+    font-size: 0.65rem;
+    color: var(--green-dark);
+    margin-top: 2px;
+    opacity: 0.7;
+    text-align: center;
+    white-space: normal;
+  }
+}
