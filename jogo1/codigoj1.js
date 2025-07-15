@@ -180,6 +180,75 @@ function createAndAppendTrash(lixo, index) {
   img.dataset.index = index;
 
   img.addEventListener("dragstart", dragStart);
+
+  // Suporte a toque (touch) para mobile
+  let touchStartX = 0, touchStartY = 0;
+  let touchMoved = false;
+  let touchClone = null;
+
+  img.addEventListener("touchstart", function(e) {
+    if (e.touches.length !== 1) return;
+    touchMoved = false;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    // Cria um clone visual para arrastar
+    touchClone = img.cloneNode(true);
+    touchClone.style.position = "fixed";
+    touchClone.style.left = touchStartX - img.offsetWidth/2 + "px";
+    touchClone.style.top = touchStartY - img.offsetHeight/2 + "px";
+    touchClone.style.opacity = "0.7";
+    touchClone.style.pointerEvents = "none";
+    touchClone.style.zIndex = 9999;
+    document.body.appendChild(touchClone);
+  });
+
+  img.addEventListener("touchmove", function(e) {
+    if (!touchClone || e.touches.length !== 1) return;
+    touchMoved = true;
+    const moveX = e.touches[0].clientX;
+    const moveY = e.touches[0].clientY;
+    touchClone.style.left = moveX - img.offsetWidth/2 + "px";
+    touchClone.style.top = moveY - img.offsetHeight/2 + "px";
+    e.preventDefault();
+  }, {passive: false});
+
+  img.addEventListener("touchend", function(e) {
+    if (!touchClone) return;
+    // Detecta o elemento sob o dedo
+    const touch = e.changedTouches[0];
+    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (dropTarget) {
+      const lixeira = dropTarget.closest && dropTarget.closest('.lixeira');
+      if (lixeira) {
+        // Simula o drop
+        const fakeEvent = {
+          preventDefault: ()=>{},
+          dataTransfer: {
+            getData: (key) => {
+              if (key === "tipo") return img.dataset.tipo;
+              if (key === "src") return img.src;
+              if (key === "index") return img.dataset.index;
+              return "";
+            }
+          },
+          target: lixeira
+        };
+        drop.call(lixeira, fakeEvent);
+      }
+    }
+    if (touchClone) {
+      touchClone.remove();
+      touchClone = null;
+    }
+  });
+
+  img.addEventListener("touchcancel", function() {
+    if (touchClone) {
+      touchClone.remove();
+      touchClone = null;
+    }
+  });
+
   container.appendChild(img);
 }
 function setupDropZones() {
