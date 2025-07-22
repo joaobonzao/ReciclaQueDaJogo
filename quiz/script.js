@@ -13,23 +13,23 @@ const questions = [
   },
   {
     question: "O papel vai no recipiente...",
-    options: ["Azul", "Amarelo", "Verde", "Vermelho"],
+    options: ["Azul", "Amarelo", "Verde", "Laranja"],
     answer: "Azul"
   },
   {
     question: "As latas de metal vão no recipiente...",
-    options: ["Azul", "Amarelo", "Verde", "Vermelho"],
+    options: ["Azul", "Amarelo", "Verde", "Laranja"],
     answer: "Amarelo"
   },
   {
     question: "O lixo orgânico (resto de comida) vai no recipiente...",
-    options: ["Cinza", "Preto", "Marrom", "Branco"],
+    options: ["Verde", "Amarelo", "Marrom", "Azul"],
     answer: "Marrom"
   },
   {
-    question: "O lixo que não pode ser reciclado vai no recipiente...",
-    options: ["Cinza", "Preto", "Marrom", "Branco"],
-    answer: "Cinza"
+    question: "O vidro vai em qual lixeira?",
+    options: ["Amarelo", "Verde", "Marrom", "Azul"],
+    answer: "Verde"
   },
   {
     question: "O que não deve ir no lixo comum?",
@@ -37,9 +37,9 @@ const questions = [
     answer: "Bateria"
   },
   {
-    question: "Onde devemos colocar os remédios vencidos?",
-    options: ["Coleta especial", "Cinza", "Azul", "Verde"],
-    answer: "Coleta especial"
+    question: "Em qual lixeira os lixos perigosos?",
+    options: ["Laranja", "Amarelo", "Azul", "Verde"],
+    answer: "Laranja"
   },
   {
     question: "O que é reciclagem?",

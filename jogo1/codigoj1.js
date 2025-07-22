@@ -8,35 +8,43 @@ const lixos = [
   { nome: "melancia", tipo: "organico", img: "./img/melancia.png" },
   { nome: "Cenoura", tipo: "organico", img: "./img/cenoura.png" },
   { nome: "tomate", tipo: "organico", img: "./img/tomate.png" },
-  { nome: "lata de atum", tipo: "metal", img: "./img/atum.png" },
-  { nome: "lata de milho", tipo: "metal", img: "./img/latamilho.png" },
-  { nome: "lata de ervilha", tipo: "metal", img: "./img/ervilha.png" },
-  { nome: "lata de feijão", tipo: "metal", img: "./img/feijao.png" },
+
   //reciclaveis
   { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
   { nome: "Caixa de Papelão", tipo: "reciclavel", img: "./img/caixa.png" },
- 
+  { nome: "Papel", tipo: "reciclavel", img: "./img/papel.png" },
+
   //perigosos
   { nome: "Seringa", tipo: "perigoso", img: "./img/seringa.png" },
   { nome: "Faca", tipo: "perigoso", img: "./img/faca.png" },
   { nome: "tesoura", tipo: "perigoso", img: "./img/tesoura.png" },
- 
+  { nome: "Pilhas", tipo: "perigoso", img: "./img/pilhas.png" },
+  { nome: "Lampada", tipo: "perigoso", img: "./img/lampada.png" },
+
   //metais
   { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
-  
-  { nome: "prego", tipo: "metal", img: "./img/prego.png" },
+  { nome: "lata de atum", tipo: "metal", img: "./img/atum.png" },
+  { nome: "lata de ervilha", tipo: "metal", img: "./img/ervilha.png" },
+  { nome: "lata de feijão", tipo: "metal", img: "./img/feijao.png" },
   { nome: "garfo", tipo: "metal", img: "./img/garfo.png" },
   
- 
+
+
+
+
   //vidros
   { nome: "Copo de Vidro", tipo: "vidro", img: "./img/copo.png" },
-  { nome: "Prato de Vidro", tipo: "vidro", img: "./img/pratoquebrado.png" }
+  { nome: "Prato de Vidro", tipo: "vidro", img: "./img/pratoquebrado.png" },
+  { nome: "Copo quebrado", tipo: "vidro", img: "./img/copoquebrado.png" },
+  { nome: "Xicara quebrada", tipo: "vidro", img: "./img/xicara.png" },
+  { nome: "Cacos de vidro", tipo: "vidro", img: "./img/cacovidro.png" },
  
-  
- 
- 
-  
+
+
+
+
+
 ];
 
 let lixosAtuais = [];
@@ -50,7 +58,7 @@ let vidasDouradas = 0; // 0 a 3
 let fase = 1;
 
 const lixosFase1 = [
-    { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
+  { nome: "Banana", tipo: "organico", img: "./img/banana.png" },
   { nome: "Garrafa PET", tipo: "reciclavel", img: "./img/pet.png" },
   { nome: "Lata de Refrigerante", tipo: "metal", img: "./img/refri.png" },
   { nome: "Jornal", tipo: "reciclavel", img: "./img/jornal.png" },
@@ -59,15 +67,15 @@ const lixosFase1 = [
   { nome: "Maçã", tipo: "organico", img: "./img/maca.png" },
   { nome: "Peixe", tipo: "organico", img: "./img/peixe.png" },
   { nome: "Carne", tipo: "organico", img: "./img/carne.png" }
-  
-  
+
+
 ];
 
 const lixosFase2 = [
   ...lixosFase1,
   ...lixosFase1,
   ...lixosFase1
-  
+
 ];
 
 function atualizarPontuacao() {
@@ -121,30 +129,30 @@ function proximaFase() {
 
     // Só ganha dourada se chegar com todas as vidas
     if ((vidas + vidasDouradas) >= 3 && vidasDouradas < 3) {
-  if (vidas > 0) vidas--;
-  vidasDouradas++;
-  ganhouDourada = true;
-} else if (vidas < 3 && vidasDouradas < 3) {
-  vidas = Math.min(vidas + 1, 3); // Ganha só uma vida normal
-  ganhouVida = true;
-}
+      if (vidas > 0) vidas--;
+      vidasDouradas++;
+      ganhouDourada = true;
+    } else if (vidas < 3 && vidasDouradas < 3) {
+      vidas = Math.min(vidas + 1, 3); // Ganha só uma vida normal
+      ganhouVida = true;
+    }
     atualizarVidas();
     setTimeout(() => {
       if (ganhouDourada) {
-  if (!document.querySelector('.golden-message')) {
-    document.body.classList.add('golden-bg');
-    const msg = document.createElement('div');
-    msg.className = 'golden-message';
-    msg.innerHTML = "<span>⭐ Parabéns! Você ganhou uma vida dourada por chegar na fase " + fase + " sem perder vidas! ⭐</span>";
-    document.body.appendChild(msg);
-    setTimeout(() => {
-      msg.remove();
-      document.body.classList.remove('golden-bg');
-    }, 1800);
+        if (!document.querySelector('.golden-message')) {
+          document.body.classList.add('golden-bg');
+          const msg = document.createElement('div');
+          msg.className = 'golden-message';
+          msg.innerHTML = "<span>⭐ Parabéns! Você ganhou uma vida dourada por chegar na fase " + fase + " sem perder vidas! ⭐</span>";
+          document.body.appendChild(msg);
+          setTimeout(() => {
+            msg.remove();
+            document.body.classList.remove('golden-bg');
+          }, 1800);
         }
-} else if (ganhouVida) {
-  alert("Parabéns! Você ganhou +1 vida por chegar na fase " + fase + "!");
-}
+      } else if (ganhouVida) {
+        alert("Parabéns! Você ganhou +1 vida por chegar na fase " + fase + "!");
+      }
     }, 300);
   }
   iniciarFase();
@@ -186,7 +194,7 @@ function createAndAppendTrash(lixo, index) {
   let touchMoved = false;
   let touchClone = null;
 
-  img.addEventListener("touchstart", function(e) {
+  img.addEventListener("touchstart", function (e) {
     if (e.touches.length !== 1) return;
     touchMoved = false;
     touchStartX = e.touches[0].clientX;
@@ -194,25 +202,25 @@ function createAndAppendTrash(lixo, index) {
     // Cria um clone visual para arrastar
     touchClone = img.cloneNode(true);
     touchClone.style.position = "fixed";
-    touchClone.style.left = touchStartX - img.offsetWidth/2 + "px";
-    touchClone.style.top = touchStartY - img.offsetHeight/2 + "px";
+    touchClone.style.left = touchStartX - img.offsetWidth / 2 + "px";
+    touchClone.style.top = touchStartY - img.offsetHeight / 2 + "px";
     touchClone.style.opacity = "0.7";
     touchClone.style.pointerEvents = "none";
     touchClone.style.zIndex = 9999;
     document.body.appendChild(touchClone);
   });
 
-  img.addEventListener("touchmove", function(e) {
+  img.addEventListener("touchmove", function (e) {
     if (!touchClone || e.touches.length !== 1) return;
     touchMoved = true;
     const moveX = e.touches[0].clientX;
     const moveY = e.touches[0].clientY;
-    touchClone.style.left = moveX - img.offsetWidth/2 + "px";
-    touchClone.style.top = moveY - img.offsetHeight/2 + "px";
+    touchClone.style.left = moveX - img.offsetWidth / 2 + "px";
+    touchClone.style.top = moveY - img.offsetHeight / 2 + "px";
     e.preventDefault();
-  }, {passive: false});
+  }, { passive: false });
 
-  img.addEventListener("touchend", function(e) {
+  img.addEventListener("touchend", function (e) {
     if (!touchClone) return;
     // Detecta o elemento sob o dedo
     const touch = e.changedTouches[0];
@@ -222,7 +230,7 @@ function createAndAppendTrash(lixo, index) {
       if (lixeira) {
         // Simula o drop
         const fakeEvent = {
-          preventDefault: ()=>{},
+          preventDefault: () => { },
           dataTransfer: {
             getData: (key) => {
               if (key === "tipo") return img.dataset.tipo;
@@ -242,7 +250,7 @@ function createAndAppendTrash(lixo, index) {
     }
   });
 
-  img.addEventListener("touchcancel", function() {
+  img.addEventListener("touchcancel", function () {
     if (touchClone) {
       touchClone.remove();
       touchClone = null;
@@ -258,7 +266,7 @@ function setupDropZones() {
     zone.addEventListener("dragover", dragOver);
     zone.addEventListener("drop", drop);
     // Impede que a lixeira seja arrastada
-    zone.addEventListener("dragstart", function(e) {
+    zone.addEventListener("dragstart", function (e) {
       e.preventDefault();
     });
   });
